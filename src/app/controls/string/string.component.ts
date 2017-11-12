@@ -1,16 +1,22 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { BaseComponent } from '../base/base.component';
 
 @Component({
-  selector: 'app-string',
+  selector: 'string',
+  inputs: ['value: config'],
   templateUrl: './string.component.html',
-  styleUrls: ['./string.component.css'],
+  styleUrls: ['../base/base.component.css', './string.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class StringComponent implements OnInit {
 
-  constructor() { }
+export class StringComponent extends BaseComponent {
+  value: string;
 
-  ngOnInit() {
+  constructor() {
+    super();
   }
 
+  setValue(v) {
+    this.value = v;
+  }
 }

@@ -1,3 +1,8 @@
+<span class="editable" (click)="toggleMode(true)">
+  <input type="number" (blur)="toggleMode(false)" *ngIf="editMode; else elseBlockMin" [value]="valueMin" (change)="setMinValue($event.target.value)"/>
+  <ng-template #elseBlockMin>{{valueMin}}</ng-template>
+  <span>-</span>
+  <input type="number" (blur)="toggleMode(false)" *ngIf="editMode; else elseBlockMax" [value]="valueMax" (change)="setMaxValue($event.target.value)"/>
+  <ng-template #elseBlockMax>{{valueMax}}</ng-template>
 <span>
-  range works!
-</span>
+  

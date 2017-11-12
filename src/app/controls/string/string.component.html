@@ -1,3 +1,4 @@
+<span class="editable" (click)="toggleMode(true)">
+  <input (blur)="toggleMode(false)" *ngIf="editMode; else elseBlock" [value]="value" (change)="setValue($event.target.value)"/>
+  <ng-template #elseBlock>{{value}}</ng-template>
 <span>
-  string works!
-</span>

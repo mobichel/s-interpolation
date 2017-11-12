@@ -4,31 +4,11 @@ export enum Templates {
   FatalError = '<span>Illegal Syntax</span>'
 }
 
-export class ParseResult {
-  private template: string;
-  private options: object;
-
-  constructor(template: string = '', options: object = {}) {
-      this.template = template;
-      this.options = options;
-  }
-
-  getTemplate(): string {
-      return this.template;
-  }
-
-  getOptions(): object {
-      return this.options;
-  }
-}
-
-// TODO: make control types plug-able
-const TemplateBuilders = {
-  'number': (options) => '<app-number></app-number>',
-  'string': (options) => '<app-string></app-string>',
-  'range': (options) => '<app-range></app-range>',
-  'list': (options) => '<app-list></app-list>',
-  'unknown': (options) => {}
+enum Types { 
+  number,
+  range,
+  list,
+  string
 };
 
 @Injectable()
@@ -66,15 +46,22 @@ export class ParseService {
       template = Templates.FatalError;
     }
 
+    const Separator = ":";
+
     template = template.replace(/({[^{}]+})/g, (match: string) => {
-      const pattern = match.replace('{', '').replace('}', ''); 
-      const parts = pattern.split(':');
-      let type = parts[0] || '';
-      type = type.toLowerCase();
-      const templateBuilder = TemplateBuilders[type] || TemplateBuilders.unknown;
-      return templateBuilder(parts);
+      const pattern = match.replace('{', '').replace('}', '');
+      let separatorIdx = pattern.indexOf(Separator);
+      if (separatorIdx < 0) {
+        separatorIdx = pattern.length;
+      }
+      let type = pattern.substr(0, separatorIdx).trim();
+      if (!(type in Types)) {
+        type = 'unknown';
+      }
+      let config = pattern.substr(separatorIdx + 1, pattern.length);
+      return `<${type} config="${config}"></${type}>`;
     });
 
-    return new ParseResult(template);
+    return template;
   }
 }

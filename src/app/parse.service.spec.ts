@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ParseService, ParseResult, Templates } from './parse.service';
+import { ParseService, Templates } from './parse.service';
 
 describe('ParseService', () => {
   beforeEach(() => {
@@ -15,39 +15,39 @@ describe('ParseService', () => {
 
   describe('parse method', () => {
     it('should return empty string template for empty input', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('');
+      const result: string = service.parse('');
       
-      expect(result.getTemplate()).toEqual('');
+      expect(result).toEqual('');
     }));
 
     it('should return same string if not braces', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('abcd');
+      const result: string = service.parse('abcd');
       
-      expect(result.getTemplate()).toEqual('abcd');
+      expect(result).toEqual('abcd');
     }));
 
     it('should return illegal syntax template for single left brace', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('{ abcde ');
+      const result: string = service.parse('{ abcde ');
       
-      expect(result.getTemplate()).toEqual(Templates.FatalError);
+      expect(result).toEqual(Templates.FatalError);
     }));
 
     it('should return illegal syntax template for single right brace', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('abcd }');
+      const result: string = service.parse('abcd }');
       
-      expect(result.getTemplate()).toEqual(Templates.FatalError);
+      expect(result).toEqual(Templates.FatalError);
     }));
 
     it('should return illegal syntax template for unmatching left brace', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('{{ abcde }');
+      const result: string = service.parse('{{ abcde }');
       
-      expect(result.getTemplate()).toEqual(Templates.FatalError);
+      expect(result).toEqual(Templates.FatalError);
     }));
 
     it('should return illegal syntax template for unmatching right brace', inject([ParseService], (service: ParseService) => {
-      const result : ParseResult = service.parse('{ abcd }}');
+      const result: string = service.parse('{ abcd }}');
       
-      expect(result.getTemplate()).toEqual(Templates.FatalError);
+      expect(result).toEqual(Templates.FatalError);
     }));
   }); 
 });
