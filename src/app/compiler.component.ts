@@ -7,13 +7,16 @@ import {
     ModuleWithComponentFactories, 
     NgModule, 
     ViewChild, 
-    ViewContainerRef
+    ViewContainerRef,
+    CUSTOM_ELEMENTS_SCHEMA
 } from '@angular/core';
 
 import { CommonModule } from '@angular/common';
+import { ParseService } from './parse.service';
+import { ControlsModule } from './controls/controls.module'
 
 @Component({
-    selector: 'compiler',
+    selector: 'app-compiler',
     templateUrl: './compiler.component.html',
     styleUrls: ['./compiler.component.css']
 })
@@ -28,12 +31,21 @@ export class CompilerComponent {
 
     constructor(
         private componentFactoryResolver: ComponentFactoryResolver,
+        private parseService: ParseService,
         private compiler: Compiler) {
     }
 
     compileTemplate() {
-        let metadata = { template: this.template };
-        let factory = this.createComponentFactorySync(this.compiler, metadata, null);
+        const parseResult = this.parseService.parse(this.template);
+        const metadata = {
+            template: parseResult.getTemplate()
+        };
+        const componentClass = class RuntimeComponent{
+            constructor() {
+                Object.assign(this, parseResult.getOptions());
+            }
+        };
+        const factory = this.createComponentFactorySync(this.compiler, metadata, componentClass);
         
         if (this.componentRef) {
             this.componentRef.destroy();
@@ -43,10 +55,16 @@ export class CompilerComponent {
     }
 
     private createComponentFactorySync(compiler: Compiler, metadata: Component, componentClass: any): ComponentFactory<any> {
-        const cmpClass = componentClass || class RuntimeComponent { name: string = 'Test' };
+        const cmpClass = componentClass || class RuntimeComponent { };
         const decoratedCmp = Component(metadata)(cmpClass);
 
-        @NgModule({ imports: [CommonModule], declarations: [decoratedCmp] })
+        @NgModule({
+            imports: [ 
+                CommonModule, 
+                ControlsModule 
+            ], 
+            declarations: [ decoratedCmp ]
+        })
         class RuntimeComponentModule { }
 
         let module: ModuleWithComponentFactories<any> = compiler.compileModuleAndAllComponentsSync(RuntimeComponentModule);
