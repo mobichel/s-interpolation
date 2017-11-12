@@ -19,7 +19,7 @@ export class ListComponent extends BaseComponent {
 
   ngOnInit() {
     const parts = this.config.split(':');
-    this.value = parts[1];
+    this.value = parts[1] || '';
     this.options = (parts[0] || '').split(',');
   }
 

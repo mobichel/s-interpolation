@@ -1,3 +1,3 @@
-.editable {
-    text-decoration: underline;
+.editable span {
+  background: gray;
 }

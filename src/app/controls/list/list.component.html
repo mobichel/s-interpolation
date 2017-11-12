@@ -2,6 +2,8 @@
   <select (blur)="toggleMode(false)" *ngIf="editMode; else elseBlock" (change)="setValue($event.target.value)" [(ngModel)]="value">
     <option *ngFor="let option of options" [value]="option">{{option}}</option>
   </select>
-  <ng-template #elseBlock>{{value}}</ng-template>
-<span>
+  <ng-template #elseBlock>
+    <span>{{value}}</span>
+  </ng-template>
+</span>
   
