@@ -1,5 +1,5 @@
 <span class="editable" (click)="toggleMode(true)">
-  <input type="number" (blur)="toggleMode(false)" *ngIf="editMode; else elseBlock" [value]="value" (change)="setValue($event.target.value)"/>
+  <input autofocus type="number" *ngIf="editMode; else elseBlock" [value]="value" (change)="setValue($event.target.value)"/>
   <ng-template #elseBlock>
     <span>{{value}}</span>
   </ng-template>

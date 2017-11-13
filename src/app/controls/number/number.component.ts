@@ -10,13 +10,8 @@ import { BaseComponent } from '../base/base.component';
 })
 export class NumberComponent extends BaseComponent {
   value: string;
-  
-  constructor() {
-    super();
-  }
 
   setValue(v) {
     this.value = v;
   }
-
 }

@@ -6,6 +6,7 @@ import { ListComponent } from './list/list.component';
 import { RangeComponent } from './range/range.component';
 import { StringComponent } from './string/string.component';
 import { UnknownComponent } from './unknown/unknown.component';
+import { AutofocusDirective } from './autofocus.directive';
 
 @NgModule({ 
   imports: [
@@ -17,7 +18,8 @@ import { UnknownComponent } from './unknown/unknown.component';
     ListComponent,
     RangeComponent,
     StringComponent,
-    UnknownComponent
+    UnknownComponent,
+    AutofocusDirective
   ],
   exports: [
     NumberComponent,

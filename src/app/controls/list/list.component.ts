@@ -13,10 +13,6 @@ export class ListComponent extends BaseComponent {
   value: string;
   options: string[];
 
-  constructor() { 
-    super();
-  }
-
   ngOnInit() {
     const parts = this.config.split(':');
     this.value = parts[1] || '';

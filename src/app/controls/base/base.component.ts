@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, HostListener, ElementRef } from '@angular/core';
 import { OnInit } from '@angular/core';
 
 @Component({
@@ -7,16 +7,25 @@ import { OnInit } from '@angular/core';
   styleUrls: ['./base.component.css'],
   encapsulation: ViewEncapsulation.None
 })
-export class BaseComponent implements OnInit {
+export class BaseComponent {
   editMode: boolean;
-  value: string;
     
-  constructor() { }
+  constructor(private el: ElementRef) { }
 
   toggleMode(value: boolean) {
     this.editMode = value;
   }
 
-  ngOnInit() {
+  @HostListener('document:click', ['$event'])
+  clickout(event) {
+    if (!this.el) {
+      return;
+    }
+    if (event.target.parentNode === null) {
+      return;
+    }
+    if (!this.el.nativeElement.contains(event.target)) {
+      this.toggleMode(false);
+    }
   }
 }

@@ -13,10 +13,6 @@ export class RangeComponent extends BaseComponent {
   valueMin: string;
   valueMax: string;
 
-  constructor() {
-    super();
-  }
-
   ngOnInit() {
     const parts = this.config.split(',');
     this.valueMin = parts[0];
