@@ -1,4 +1,4 @@
-<span class="editable" (click)="toggleMode(true)">
+<span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
   <select autofocus *ngIf="editMode; else elseBlock" (change)="setValue($event.target.value)" [(ngModel)]="value">
     <option *ngFor="let option of options" [value]="option">{{option}}</option>
   </select>

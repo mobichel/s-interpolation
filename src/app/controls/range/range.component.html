@@ -1,4 +1,4 @@
-<span class="editable" (click)="toggleMode(true)">
+<span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
   <input autofocus type="number" *ngIf="editMode" [value]="valueMin" (change)="setMinValue($event.target.value)"/>
   <input type="number" *ngIf="editMode; else elseBlock" [value]="valueMax" (change)="setMaxValue($event.target.value)"/>
   <ng-template #elseBlock>

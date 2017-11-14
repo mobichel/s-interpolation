@@ -1,4 +1,4 @@
-<span class="editable" (click)="toggleMode(true)">
+<span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
   <input autofocus (blur)="toggleMode(false)" *ngIf="editMode; else elseBlock" [value]="value" (change)="setValue($event.target.value)"/>
   <ng-template #elseBlock>
     <span>{{value}}</span>
