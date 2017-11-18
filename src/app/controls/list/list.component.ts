@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { BaseComponent } from '../base/base.component';
+import { MatSelect } from '@angular/material/select';
 
 @Component({
   selector: 'list',

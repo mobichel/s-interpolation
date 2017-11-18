@@ -5,28 +5,29 @@ import { NumberComponent } from './number/number.component';
 import { ListComponent } from './list/list.component';
 import { RangeComponent } from './range/range.component';
 import { StringComponent } from './string/string.component';
-import { UnknownComponent } from './unknown/unknown.component';
 import { AutofocusDirective } from './autofocus.directive';
+import { MatSelectModule, MatFormFieldModule, MatInputModule } from '@angular/material';
 
-@NgModule({ 
+@NgModule({
   imports: [
     CommonModule,
-    FormsModule
-  ], 
+    FormsModule,
+    MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
+  ],
   declarations: [
     NumberComponent,
     ListComponent,
     RangeComponent,
     StringComponent,
-    UnknownComponent,
     AutofocusDirective
   ],
   exports: [
     NumberComponent,
     ListComponent,
     RangeComponent,
-    StringComponent,
-    UnknownComponent
+    StringComponent
   ]
 })
 export class ControlsModule { }

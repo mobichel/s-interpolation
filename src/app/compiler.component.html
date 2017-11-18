@@ -1,9 +1,9 @@
 <div>
-  <h3>Template</h3>
-  <div>
-    <textarea rows="5" [(ngModel)]="template"></textarea>
-  </div>
-  <button (click)="compileTemplate()">Compile</button>
-  <h3>Output</h3>
+  <mat-form-field>
+    <textarea matInput placeholder="Text to be processed" [formControl]="formControl" [(ngModel)]="template"></textarea>
+    <mat-error *ngIf="formControl.hasError('braces')">Mismathcing braces!</mat-error>
+  </mat-form-field>
+  <button color="primary" mat-button mat-raised-button (click)="compileTemplate()">Process</button>
+  <button color="warn" mat-button mat-raised-button (click)="cleartTemplate()">Clear</button>
   <div #container></div>
 </div>
