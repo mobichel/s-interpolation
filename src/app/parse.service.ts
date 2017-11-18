@@ -46,7 +46,7 @@ export class ParseService {
       return '';
     }
 
-    template = template.replace(/({[^{}]+})/g, (match: string) => {
+    template = template.replace(/({[^{}]*})/g, (match: string) => {
       const pattern = match.replace(/{|}/g, '');
       let separatorIdx = pattern.indexOf(":");
       if (separatorIdx < 0) {
@@ -57,7 +57,7 @@ export class ParseService {
         let config = pattern.substr(separatorIdx + 1, pattern.length);
         return `<${type} config="${config}"></${type}>`;
       }
-      this.escape(match);
+      return this.escape(match);
     });
 
     return template;

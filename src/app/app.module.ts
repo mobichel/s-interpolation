@@ -10,7 +10,8 @@ import {
   MatToolbarModule,
   MatFormFieldModule,
   MatInputModule,
-  MatButtonModule
+  MatButtonModule,
+  MatCardModule
 } from '@angular/material';
 import { ControlsModule } from './controls/controls.module';
 
@@ -28,7 +29,8 @@ import { ControlsModule } from './controls/controls.module';
     MatFormFieldModule,
     MatInputModule,
     MatButtonModule,
-    ControlsModule
+    ControlsModule,
+    MatCardModule
   ],
   providers: [ParseService],
   bootstrap: [AppComponent]

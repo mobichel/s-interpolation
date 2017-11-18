@@ -23,7 +23,7 @@ import { FormControl } from '@angular/forms';
 })
 
 export class CompilerComponent {
-  template: string = `The meeting took place in {number:2017}, at {list:Saint-Petersburg,Moscow,London:Moscow} and was attended by {string:Trump} in period {range:1,11} September`;
+  template: string = `The meeting took place in {number:2017}, at {list:Saint-Petersburg,Moscow,London:Moscow} and was attended by {string:Trump} in period of {range:1,11} September`;
 
 	@ViewChild('container', { read: ViewContainerRef })
 	container: ViewContainerRef;
