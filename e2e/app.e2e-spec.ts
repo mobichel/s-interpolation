@@ -9,6 +9,6 @@ describe('s-interpolation App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getParagraphText()).toEqual('Welcome to app!');
+    expect(page.getToolbarText()).toEqual('Welcome to Smart Interpolation!');
   });
 });
