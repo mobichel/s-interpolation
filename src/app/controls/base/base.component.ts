@@ -9,8 +9,9 @@ import { OnInit } from '@angular/core';
 })
 export class BaseComponent {
   editMode: boolean;
-    
-  constructor(private el: ElementRef) { }
+  TOOLTIP = "Click to edit the value.";
+
+  constructor(private el: ElementRef) {}
 
   toggleMode(value: boolean) {
     this.editMode = value;

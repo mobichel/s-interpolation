@@ -1,10 +1,19 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { CompilerComponent } from './compiler.component';
 import { ParseService } from './parse.service';
+import {
+  MatToolbarModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatButtonModule,
+  MatCardModule
+} from '@angular/material';
+import { ControlsModule } from './controls/controls.module';
 
 @NgModule({
   declarations: [
@@ -13,7 +22,15 @@ import { ParseService } from './parse.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    ControlsModule,
+    MatCardModule
   ],
   providers: [ParseService],
   bootstrap: [AppComponent]

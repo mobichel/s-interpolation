@@ -1,8 +1,15 @@
 <span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
-  <input autofocus type="number" *ngIf="editMode" [value]="valueMin" (change)="setMinValue($event.target.value)"/>
-  <input type="number" *ngIf="editMode; else elseBlock" [value]="valueMax" (change)="setMaxValue($event.target.value)"/>
+  <mat-form-field class="form-field-short" *ngIf="editMode;">
+    <input matInput autofocus type="number" [value]="valueMin" (change)="setMinValue($event.target.value)"/>
+  </mat-form-field>
+  <mat-form-field class="form-field-short" *ngIf="editMode; else elseBlock" >
+    <input matInput type="number" [value]="valueMax" (change)="setMaxValue($event.target.value)"/>
+  </mat-form-field>
   <ng-template #elseBlock>
-    <span>{{valueMin}} - {{valueMax}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="valueMin">{{valueMin}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="!valueMin">&nbsp;&nbsp;</span>
+      -
+    <span matTooltip="{{TOOLTIP}}" *ngIf="valueMax">{{valueMax}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="!valueMax">&nbsp;&nbsp;</span>
   </ng-template>
 </span>
-  
