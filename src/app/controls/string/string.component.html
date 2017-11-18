@@ -3,7 +3,7 @@
     <input matInput autofocus (blur)="toggleMode(false)" [value]="value" (change)="setValue($event.target.value)"/>
   </mat-form-field>
   <ng-template #elseBlock>
-    <span *ngIf="value">{{value}}</span>
-    <span *ngIf="!value">&nbsp;&nbsp;</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="value">{{value}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="!value">&nbsp;&nbsp;</span>
   </ng-template>
 </span>

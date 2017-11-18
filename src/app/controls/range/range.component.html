@@ -6,10 +6,10 @@
     <input matInput type="number" [value]="valueMax" (change)="setMaxValue($event.target.value)"/>
   </mat-form-field>
   <ng-template #elseBlock>
-    <span *ngIf="valueMin">{{valueMin}}</span>
-    <span *ngIf="!valueMin">&nbsp;&nbsp;</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="valueMin">{{valueMin}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="!valueMin">&nbsp;&nbsp;</span>
       -
-    <span *ngIf="valueMax">{{valueMax}}</span>
-    <span *ngIf="!valueMax">&nbsp;&nbsp;</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="valueMax">{{valueMax}}</span>
+    <span matTooltip="{{TOOLTIP}}" *ngIf="!valueMax">&nbsp;&nbsp;</span>
   </ng-template>
 </span>

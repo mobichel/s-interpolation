@@ -6,7 +6,12 @@ import { ListComponent } from './list/list.component';
 import { RangeComponent } from './range/range.component';
 import { StringComponent } from './string/string.component';
 import { AutofocusDirective } from './autofocus.directive';
-import { MatSelectModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import {
+  MatSelectModule,
+  MatFormFieldModule,
+  MatInputModule,
+  MatTooltipModule
+} from '@angular/material';
 
 @NgModule({
   imports: [
@@ -14,7 +19,8 @@ import { MatSelectModule, MatFormFieldModule, MatInputModule } from '@angular/ma
     FormsModule,
     MatSelectModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTooltipModule
   ],
   declarations: [
     NumberComponent,

@@ -34,26 +34,30 @@ export class ParseService {
     return valid;
   }
 
+  public escape(input: string = '') {
+    return input.replace(/{|}/g, (match: string) => {
+      return `{{'${match}'}}`;
+    });
+  }
+
   public parse(input: string = '') {
     let template = input;
     if (!this.validate(input)) {
       return '';
     }
 
-    const Separator = ":";
-
     template = template.replace(/({[^{}]+})/g, (match: string) => {
       const pattern = match.replace(/{|}/g, '');
-      let separatorIdx = pattern.indexOf(Separator);
+      let separatorIdx = pattern.indexOf(":");
       if (separatorIdx < 0) {
         separatorIdx = pattern.length;
       }
-      let type = pattern.substr(0, separatorIdx).trim();
+      const type = pattern.substr(0, separatorIdx).trim();
       if (type in ControlTypes) {
         let config = pattern.substr(separatorIdx + 1, pattern.length);
         return `<${type} config="${config}"></${type}>`;
       }
-      return `<span>{{"${match}"}}</span>`;
+      this.escape(match);
     });
 
     return template;
