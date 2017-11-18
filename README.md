@@ -3,10 +3,10 @@
 The simple application which allows editing specific parts of provided text.
 
 ## Template format
-{number[:default]}
-{string[:default]}
-{list:item1,item2,...[:default]}
-{range:min,max}
+- {number[:default]}
+- {string[:default]}
+- {list:item1,item2,...[:default]}
+- {range:min,max}
 
 ## Development server
 
