@@ -26,10 +26,10 @@ export class CompilerComponent {
   template: string = `The meeting took place in {number:2017}, at {list:Saint-Petersburg,Moscow,London:Moscow} and was attended by {string:Trump} in period of {range:1,11} September`;
 
 	@ViewChild('container', { read: ViewContainerRef })
-	container: ViewContainerRef;
+  container: ViewContainerRef;
+  formControl: FormControl;
 
 	private componentRef: ComponentRef<{}>;
-  private formControl: FormControl;
 
 	constructor(
 		private componentFactoryResolver: ComponentFactoryResolver,

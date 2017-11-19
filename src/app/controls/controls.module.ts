@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BaseComponent } from './base/base.component';
 import { NumberComponent } from './number/number.component';
 import { ListComponent } from './list/list.component';
 import { RangeComponent } from './range/range.component';
@@ -23,6 +24,7 @@ import {
     MatTooltipModule
   ],
   declarations: [
+    BaseComponent,
     NumberComponent,
     ListComponent,
     RangeComponent,
@@ -30,6 +32,7 @@ import {
     AutofocusDirective
   ],
   exports: [
+    BaseComponent,
     NumberComponent,
     ListComponent,
     RangeComponent,
