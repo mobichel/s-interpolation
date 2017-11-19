@@ -1,5 +1,5 @@
 <span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
-  <mat-form-field lass="form-field" *ngIf="editMode; else elseBlock">
+  <mat-form-field class="form-field" *ngIf="editMode; else elseBlock">
     <input matInput autofocus (blur)="toggleMode(false)" [value]="value" (change)="setValue($event.target.value)"/>
   </mat-form-field>
   <ng-template #elseBlock>

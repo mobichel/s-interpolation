@@ -1,9 +1,6 @@
 <span class="editable" (click)="toggleMode(true)" (keyup.enter)="toggleMode(false)">
   <mat-form-field class="form-field-short" *ngIf="editMode; else elseBlock">
-    <input matInput autofocus type="number"
-      (blur)="toggleMode(false)"
-      [value]="value"
-      (change)="setValue($event.target.value)"/>
+    <input matInput autofocus type="number" (blur)="toggleMode(false)" [value]="value" (change)="setValue($event.target.value)"/>
   </mat-form-field>
   <ng-template #elseBlock>
     <span matTooltip="{{TOOLTIP}}" *ngIf="value">{{value}}</span>
