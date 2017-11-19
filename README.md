@@ -15,6 +15,7 @@ Latest stable versions of Chrome, Firefox and Safari are supported.
 ## Dependencies
 
 Run `npm install` to install dependencies.
+Run `npm install -g @angular/cli` to install [Angular CLI](https://github.com/angular/angular-cli).
 
 ## Development server
 
