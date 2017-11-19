@@ -8,6 +8,15 @@ The simple application which allows editing specific parts of provided text.
 - {list:item1,item2,...[:default]}
 - {range:min,max}
 
+## Browser Support
+
+Latest stable versions of Chrome, Firefox and Safari are supported.
+
+## Dependencies
+
+Run `npm install` to install dependencies.
+Run `npm install -g @angular/cli` to install [Angular CLI](https://github.com/angular/angular-cli).
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -21,3 +30,7 @@ Due to [#2](https://github.com/mobichel/s-interpolation/issues/2) you need to sp
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Credits
+
+Favicon was kindly taken from [Polymer Project](https://www.polymer-project.org/)
