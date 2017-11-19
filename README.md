@@ -8,6 +8,10 @@ The simple application which allows editing specific parts of provided text.
 - {list:item1,item2,...[:default]}
 - {range:min,max}
 
+## Browser Support
+
+Latest stable versions of Chrome, Firefox and Safari are supported.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
