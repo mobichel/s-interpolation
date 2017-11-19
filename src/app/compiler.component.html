@@ -1,6 +1,6 @@
 <div>
   <mat-form-field>
-    <textarea matInput placeholder="Text to be processed" [formControl]="formControl" [(ngModel)]="template"></textarea>
+    <textarea matInput matTextareaAutosize placeholder="Text to be processed" [formControl]="formControl" [(ngModel)]="template"></textarea>
     <mat-error *ngIf="formControl.hasError('braces')">Mismathcing braces!</mat-error>
   </mat-form-field>
   <button color="primary" mat-button mat-raised-button (click)="compileTemplate()">Process</button>
