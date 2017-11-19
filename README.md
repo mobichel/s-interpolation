@@ -15,7 +15,8 @@ Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app w
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. 
-Use the `-prod --build-optimizer false --aot false` flag for a production build.
+Use the `-prod` flag for a production build. 
+Due to [#2](https://github.com/mobichel/s-interpolation/issues/2) you need to specify additional flags `--build-optimizer false --aot false` for a production build.
 
 ## Running unit tests
 
