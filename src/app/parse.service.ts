@@ -57,9 +57,9 @@ export class ParseService {
         let config = pattern.substr(separatorIdx + 1, pattern.length);
         return `<${type} config="${config}"></${type}>`;
       }
-      return this.escape(match);
+      return match;
     });
 
-    return template;
+    return this.escape(template);
   }
 }

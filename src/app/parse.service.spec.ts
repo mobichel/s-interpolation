@@ -103,6 +103,12 @@ describe('ParseService', () => {
       expect(result).toEqual("{{'{'}} abcd {{'}'}}");
     }));
 
+    it('should return escaped string for string with enclosed braces', inject([ParseService], (service: ParseService) => {
+      const result: string = service.parse("{{ abcd }}");
+
+      expect(result).toEqual("{{'{'}}{{'{'}} abcd {{'}'}}{{'}'}}");
+    }));
+
     it('should return number control for string with {number}', inject([ParseService], (service: ParseService) => {
       const result: string = service.parse('{number}');
 
