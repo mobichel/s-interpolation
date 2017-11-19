@@ -30,3 +30,7 @@ Due to [#2](https://github.com/mobichel/s-interpolation/issues/2) you need to sp
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+
+## Credits
+
+Favicon was kindly taken from [Polymer Project](https://www.polymer-project.org/)
